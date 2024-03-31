@@ -1,1 +1,32 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Flex Mocker</title><link rel="stylesheet" href="/index.css"><script type="module" src="/index.js" defer></script></head><body x-data="Manager"> <header x-text="currentNode?.$el.id||'...'"></header> <main x-data="Mocker()" class="col"> <div x-data="Mocker()"><p>Flex Mocker</p></div> </main> <dialog x-ref="dialog"> <template x-if="currentNode"> <form method="dialog" @change="onFormChange"> <p> <label><input x-model="currentNode.direction" type="radio" value="col"><span>COL</span></label> <label><input x-model="currentNode.direction" type="radio" value="row"><span>ROW</span></label> </p> <p> <button @click.prevent="insertNode()">INSERT</button> <template x-if="currentNode.$el.tagName!='MAIN'"> <button @click.prevent="removeNode()">REMOVE</button> </template> </p> <p> <button @click.prevent="saveMain()">SAVE</button> </p> <p> <button type="submit">CLOSE</button> </p> </form> </template> </dialog> </body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Mocker</title>
+    <link rel="stylesheet" href="./index.css">
+    <script type="module" src="./index.js" defer></script>
+</head>
+
+<body x-data="Manager">
+    <header x-text="currentNode?.$el.id||'...'"></header>
+    <main x-data="Mocker()" class="col">
+        <div x-data="Mocker()">
+            <p>Flex Mocker</p>
+        </div>
+    </main>
+    <dialog x-ref="dialog"> <template x-if="currentNode">
+            <form method="dialog" @change="onFormChange">
+                <p> <label><input x-model="currentNode.direction" type="radio" value="col"><span>COL</span></label>
+                    <label><input x-model="currentNode.direction" type="radio" value="row"><span>ROW</span></label> </p>
+                <p> <button @click.prevent="insertNode()">INSERT</button> <template
+                        x-if="currentNode.$el.tagName!='MAIN'"> <button @click.prevent="removeNode()">REMOVE</button>
+                    </template> </p>
+                <p> <button @click.prevent="saveMain()">SAVE</button> </p>
+                <p> <button type="submit">CLOSE</button> </p>
+            </form>
+        </template> </dialog>
+</body>
+
+</html>
